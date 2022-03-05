@@ -1,0 +1,48 @@
+<h1>Help Find API User Session</h1>
+
+<%= link_to "Missing Persons and Status Reports", "/ajax/home" %>
+
+<!-- Help Find API Create User -->
+<p>Help Find API Create User</p>
+<div id="session_rest_operations_div">
+  <label>User Email</label>
+  <input id="create_user_email">
+
+  <br>
+
+  <label>User Password</label>
+  <input id="create_user_password">
+
+  <br>
+
+  <button id="create_user_button" type="button">Create User</button>
+
+  <br>
+
+  <!-- Help Find API User Logon -->
+  <p>Help Find API User Logon</p>
+  <label>User Email</label>
+  <input id="user_log_on_email">
+
+  <br>
+
+  <label>User Password</label>
+  <input id="user_log_on_password">
+
+  <br>
+
+  <button id="user_logon_button" type="button">Log on</button>
+
+  <br>
+
+  <!-- Help Find API User Logoff -->
+  <p>Help Find API User Logoff</p>
+  <button id="user_logoff_button" type="button">Logoff</button>
+
+</div>
+
+<div id="ajax_results_div">
+  <p>Results Displayed:</p>
+</div>
+
+<%= javascript_pack_tag 'session_operations' %>
