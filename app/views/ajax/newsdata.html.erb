@@ -1,0 +1,57 @@
+
+<h2>Newsdata API Search</h2>
+
+
+<br>
+<br>
+
+<div id='crud_operations_div'>
+  <b><label>Valid options:  all, title, link, description</label></b>
+  <input id="newsdata_api_word">
+
+  <br>
+
+  <button id="newsdata_api_button" type="button">Newsdata Results</button>
+
+  <br>
+
+  <div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Link</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody id="newsdata_results_div">
+    </tbody>
+  </table>
+</div>
+
+  <br>
+  <br>
+
+</div>
+
+<br>
+
+
+<%= link_to 'Home', 'home' %>
+
+<br>
+
+<%= link_to 'Search FBI', 'fbi' %>
+
+<br>
+
+<%= link_to 'Search Twitter', 'twitter' %>
+
+<br>
+<br>
+
+<%= link_to 'Login/Logout', 'session' %>
+
+
+
+<%= javascript_pack_tag 'ajax_operations' %>

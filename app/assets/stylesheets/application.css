@@ -10,6 +10,31 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require bootstrap
  *= require_tree .
  *= require_self
  */
+
+ .jumbo-background {
+   /* opacity: 0.5; */
+   filter: grayscale(100%);
+   background-image: url('girl.jpg');
+   background-size: 850px;
+   border-radius: 10%
+
+
+    /* opacity: 0.5; */
+ }
+
+
+
+ @font-face {
+    font-family: 'Disturbed.otf';
+    src: url('Disturbed.otf');
+ }
+
+ table, h1 {
+   font-family: 'Disturbed.otf';
+   color: blue;
+
+ }

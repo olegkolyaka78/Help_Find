@@ -1,0 +1,52 @@
+
+<h2>Twitter API Search</h2>
+
+<br>
+<br>
+
+<div id='crud_operations_div'>
+
+  <b><label>Valid options:  all, id, text </label></b>
+  <input id="twitter_api_word">
+
+  <br>
+
+  <button id="twitter_api_button" type="button">Twitter results</button>
+
+  <br>
+
+  <div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Text</th>
+      </tr>
+    </thead>
+    <tbody id="twitter_results_div">
+    </tbody>
+  </table>
+</div>
+  <br>
+  <br>
+
+</div>
+
+<br>
+
+<%= link_to 'Home', 'home' %>
+
+<br>
+
+<%= link_to 'Search FBI', 'fbi' %>
+
+<br>
+
+<%= link_to 'Search Newsdata', 'newsdata' %>
+
+<br>
+<br>
+
+<%= link_to 'Login/Logout', 'session' %>
+
+<%= javascript_pack_tag 'ajax_operations' %>

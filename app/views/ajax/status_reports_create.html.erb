@@ -1,0 +1,90 @@
+
+<h2>Status Reports</h2>
+
+
+<div id='crud_operations_div'>
+
+  <!-- Create Missing Person Status Report-->
+  <b><p>Create Missing Person Status Report</p></b>
+
+  <label>Missing Person ID</label>
+  <input id="create_id_missing_person_status_report">
+
+  <br>
+
+  <label>Description</label>
+  <input id="create_description">
+
+  <br>
+
+  <label>Details</label>
+  <input id="create_details">
+
+  <br>
+
+  <label>Status Report Agency Reference ID (Optional)</label>
+  <input id="create_outside_agency_id">
+
+  <br>
+
+  <label>Image URL (Optional)</label>
+  <input id="create_image_url">
+
+  <br>
+
+      <button id="create_status_report_button" type="button" a href="#" class="button">Create New</button>
+
+      <br>
+
+      <div class="container">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Sex</th>
+            <th>Race</th>
+            <th>Age</th>
+            <th>Hair Color</th>
+            <th>Weight</th>
+          </tr>
+        </thead>
+        <tbody id="create_status_report_results_div">
+        </tbody>
+      </table>
+    </div>
+
+      <br>
+        <br>
+          <br>
+            <br>
+              <br>
+
+
+
+  <br>
+
+</div>
+<%= link_to "Home", "home" %>
+
+<br>
+
+<%= link_to 'Search FBI', 'fbi' %>
+
+<br>
+
+<%= link_to 'Search Twitter', 'twitter' %>
+
+<br>
+
+<%= link_to 'Search Newsdata', 'newsdata' %>
+
+<br>
+
+<%= link_to 'Login/Logoff', 'missing_files' %>
+
+<br>
+
+<%= link_to 'Login/Logoff', 'session' %>
+
+<%= javascript_pack_tag 'ajax_operations' %>

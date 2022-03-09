@@ -1,273 +1,40 @@
 
-<h1>Help Find Missing People</h1>
+<h2>Home</h2>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<%= link_to 'Search FBI', 'fbi' %>
+
+<br>
+
+<%= link_to 'Search Twitter', 'twitter' %>
+
+<br>
+
+<%= link_to 'Search Newsdata', 'newsdata' %>
+
+<br>
+
+<%= link_to 'Missing People', 'missing_files' %>
+
+<br>
+
+<%= link_to 'Status Reports', 'status_reports' %>
+
+<br>
+
+<%= link_to 'Login/Logoff', 'session' %>
+
+<br>
+
+<%= link_to 'About', 'about' %>
 
 <br>
 
 
-<%= link_to 'User Session', 'ajax/session' %>
-
-<br>
-<br>
-
-<div id='crud_operations_div'>
-  
-  <p>FBI<p>
-  <label>FBI Search Word</label>
-  <input id="fbi_api_word">
-
-  <br>
-
-  <button id="fbi_api_button" type="button">Return results</button><br>
-
-  <br>
-
-  <div id='fbi_results_div'></div>
-
-  <br>
-
-  <p>Twitter<p>
-  <label>Twitter Search Word</label>
-  <input id="twitter_api_word">
-
-  <br>
-
-  <button id="twitter_api_button" type="button">Twitter results</button>
-
-  <br>
-
-  <div id='twitter_results_div'></div>
-
-  <br>
-  <p>Newsdata<p>
-  <label>Newdata Search Word</label>
-  <input id="newsdata_api_word">
-
-  <br>
-
-  <button id="newsdata_api_button" type="button">Newsdata results</button>
-
-  <br>
-
-  <div id='newsdata_results_div'></div>
-
-  <br>
-  <br>
-
-  <!-- list-missing_people-->
-  <p>Show all Missing People</p>
-  <button id="read_missing_people_button" type="button">List All Missing People</button>
-
-  <br>
-  <div id='read_missing_person_results_div'></div>
-  <br>
-
-
-  <!-- create missing person file -->
-  <p>Create A Missing Person Profile</p>
-  <!-- missingb person name-->
-  <label>Name</label>
-  <input id="create_name">
-
-  <br>
-  <br>
-
-  <label>Sex</label>
-  <input id="create_sex">
-
-  <br>
-
-  <label>Race</label>
-  <input id="create_race">
-
-  <br>
-
-  <label>Age (optional)</label>
-  <input id="create_age">
-
-  <br>
-
-  <label>Hair Color (optional)</label>
-  <input id="create_hair_color">
-
-  <br>
-
-  <label>Weight (optional)</label>
-  <input id="create_weight">
-
-  <br>
-
-  <button id="create_missing_person_button" type="button">Create A Missing Person Profile</button>
-
-  <br>
-  <div id='create_missing_person_results_div'></div>
-  <br>
-
-  <!-- update missing person profile -->
-  <p>Update A Missing Person Profile</p>
-
-  <label>Missing Person ID</label>
-  <input id="update_missing_person_id" type="number">
-
-  <br>
-
-  <label>Name</label>
-  <input id="update_name">
-
-  <br>
-
-  <label>Sex</label>
-  <input id="update_sex">
-
-  <br>
-
-  <label>Race</label>
-  <input id="update_race">
-
-  <br>
-
-  <label>Age (optional)</label>
-  <input id="update_age">
-
-  <br>
-
-  <label>Hair Color (optional)</label>
-  <input id="update_hair_color">
-
-  <br>
-
-  <label>Weight (optional)</label>
-  <input id="update_weight">
-
-  <br>
-
-  <button id="update_missing_person_button" type="button">Update A Missing Person Profile</button>
-
-  <br>
-  <div id='update_missing_person_results_div'></div>
-  <br>
-
-  <!-- Delete A Missing Person Profile -->
-  <p>Delete A Missing Person's Profile</p>
-
-  <label>Missing Person ID</label>
-  <input id="delete_missing_person_id" type="number">
-
-  <br>
-
-  <button id="delete_missing_person_button" type="button">Delete A Missing Person Profile</button>
-
-  <br>
-  <div id='delete_missing_person_results_div'></div>
-  <br>
-
-  <!-- List Status Reports Of A Missing Person-->
-  <p>List Missing Person Status Reports</p>
-
-  <label>Missing Person ID</label>
-  <input id="read_status_reports_missing_person_id" type="number">
-
-  <br>
-
-  <button id="read_status_reports_button" type="button">List All Status Reports</button>
-
-  <br>
-
-  <div id='read_status_report_results_div'></div>
-  <br>
-
-  <!-- Create Missing Person Status Report-->
-  <p>Create Missing Person Status Report</p>
-
-  <label>Missing Person ID</label>
-  <input id="create_id_missing_person_status_report">
-
-  <br>
-
-  <label>Description</label>
-  <input id="create_description">
-
-  <br>
-
-  <label>Details</label>
-  <input id="create_details">
-
-  <br>
-
-  <label>Status Report Agency Reference ID (Optional)</label>
-  <input id="create_outside_agency_id">
-
-  <br>
-
-  <label>Image URL (Optional)</label>
-  <input id="create_image_url">
-
-  <br>
-
-  <button id="create_status_report_button" type="button">Create A Status Report</button>
-
-  <br>
-
-  <div id='create_status_report_results_div'></div>
-
-  <br>
-
-  <p>Update A Missing Persons' Status Report</p>
-
-  <label>Missing Person ID</label>
-  <input id="update_status_report_missing_person_id" type="number">
-
-  <br>
-
-  <label>Missing Person's Status Report ID</label>
-  <input id="update_status_report_id" type="number">
-
-  <br>
-
-  <label>description</label>
-  <input id="update_description">
-
-  <br>
-
-  <label>details</label>
-  <input id="update_details">
-
-  <br>
-
-  <label>Status Report Agency Reference ID (Optional) </label>
-  <input id="update_outside_agency_id">
-
-  <br>
-
-  <label>Image URL</label>
-  <input id="update_image_url">
-
-  <br>
-
-  <button id="update_status_report_button" type="button">Update A Status Report</button>
-
-  <br>
-
-  <div id='update_status_report_results_div'></div>
-
-  <!-- Delete A Status Report From A Missing Person File  -->
-
-  <p>Delete A Missing Persons' Status Report</p>
-
-  <label>Missing Person ID</label>
-  <input id="delete_status_report_missing_person_id" type="number">
-
-  <br>
-
-  <label>Status Report ID</label>
-  <input id="delete_status_report_id">
-
-  <br>
-
-  <button id="delete_status_report_button" type="button">Delete A Status Report</button>
-
-  <div id='delete_status_report_results_div'></div>
-
-
-</div>
 
 <%= javascript_pack_tag 'ajax_operations' %>

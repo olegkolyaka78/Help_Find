@@ -165,6 +165,31 @@ function handle_ajax(event)
           createMissingPersonResponse.json()
           .then((createMissingPersonData) =>
           {
+
+            // HTML TABLE
+            let text = "<table>"
+            for (let x in createMissingPersonData)
+            {
+              text += "<tr>";
+              text += "<td>" +
+              createMissingPersonData[x].id + "</td>";
+              text += "<td>" +
+              createMissingPersonData[x].name + "</td>";
+              text += "<td>" +
+              createMissingPersonData[x].sex + "</td>";
+              text += "<td>" +
+              createMissingPersonData[x].race + "</td>";
+              text += "<td>" +
+              createMissingPersonData[x].age + "</td>";
+              text += "<td>" +
+              createMissingPersonData[x].hair_color + "</td>";
+              text += "<td>" +
+              createMissingPersonData[x].weight + "</td></tr>";
+            }
+            text += "</table>"
+            createMissingPersonResultsDiv.innerHTML = text;
+
+            // JSON ONLY
             createMissingPersonResultsDiv.innerHTML = '';
             let displayText = document.createElement('P');
             displayText.textContent = JSON.stringify(createMissingPersonData);
@@ -201,12 +226,14 @@ function handle_ajax(event)
       })
       .then((listMissingPeopleResponse) =>
       {
+        console.log(listMissingPeopleResponse);
         if (listMissingPeopleResponse.status === 200)
         {
           readMissingPersonResultsDiv.innerHTML = '';
           listMissingPeopleResponse.json()
           .then((listMissingPeopleData) =>
           {
+            console.log(listMissingPeopleData);
             if (listMissingPeopleData.length === 0)
             {
               let textDisplay = document.createElement('P')
@@ -215,12 +242,36 @@ function handle_ajax(event)
             }
             else
             {
-              for (let i = 0; i < listMissingPeopleData.length; i++)
+              // HTML TABLE
+              let text = "<table>"
+              for (let x in listMissingPeopleData)
               {
-                let textDisplay = document.createElement('P');
-                textDisplay.textContent = JSON.stringify(listMissingPeopleData[i]);
-                readMissingPersonResultsDiv.appendChild(textDisplay);
+                text += "<tr>";
+                text += "<td>" +
+                listMissingPeopleData[x].id + "</td>";
+                text += "<td>" +
+                listMissingPeopleData[x].name + "</td>";
+                text += "<td>" +
+                listMissingPeopleData[x].sex + "</td>";
+                text += "<td>" +
+                listMissingPeopleData[x].race + "</td>";
+                text += "<td>" +
+                listMissingPeopleData[x].age + "</td>";
+                text += "<td>" +
+                listMissingPeopleData[x].hair_color + "</td>";
+                text += "<td>" +
+                listMissingPeopleData[x].weight + "</td></tr>";
               }
+              text += "</table>"
+              readMissingPersonResultsDiv.innerHTML = text;
+
+              // JSON ONLY
+              // for (let i = 0; i < listMissingPeopleData.length; i++)
+              // {
+              //   let textDisplay = document.createElement('P');
+              //   textDisplay.textContent = JSON.stringify(listMissingPeopleData[i]);
+              //   readMissingPersonResultsDiv.appendChild(textDisplay);
+              // }
             }
           });// .then((listMissingPeopleData)
         }
@@ -242,12 +293,12 @@ function handle_ajax(event)
       {
         missing_person:
         {
-          name: createName.value,
-          sex: createSex.value,
-          race: createRace.value,
-          age: createAge.value,
-          hair_color: createHairColor.value,
-          weight: createWeight.value
+          name: updateName.value,
+          sex: updateSex.value,
+          race: updateRace.value,
+          age: updateAge.value,
+          hair_color: updateHairColor.value,
+          weight: updateWeight.value
         }
       }
       if (!updateMissingPersonData.update_name) {
@@ -420,8 +471,9 @@ function handle_ajax(event)
             textDisplay.textContent = "There are no status reports for this missing person."
             readStatusReportResultsDiv.appendChild(textDisplay)
           }
-          else
+        else
           {
+            // JSON ONLY
             for (let i = 0; i < readStatusReportsHtmlData.length; i++)
             {
               let textDisplay = document.createElement('P');
@@ -539,37 +591,155 @@ function handle_ajax(event)
     {
       fetch(fbiPath)
       .then(
-        function(response){
-          return response.json();//json.data
+        function(fbiApiResponseData){
+          return fbiApiResponseData.json();//json.data
         }
       )
       .then(
-        function(respData){
-          console.log(respData);
+        function(fbiApiResponseData)
+        {
+          console.log(fbiApiResponseData);
+          var fbiEntry = fbiApiWord.value
+          let text = "<table>"
+          for (let x in fbiApiResponseData.items)
+          {
+            if (fbiEntry === 'all')
+            {
+              text += "<tr>";
+              text += "<td>" +
+              fbiApiResponseData.items[x].title + "</td>";
+              text += "<td>" +
+              fbiApiResponseData.items[x].description + "</td>";
+              text += "<td>" +
+              fbiApiResponseData.items[x].details + "</td>";
+              text += "<td>" +
+              fbiApiResponseData.items[x].sex + "</td>";
+              text += "<td>" +
+              fbiApiResponseData.items[x].race_raw + "</td>";
+              text += "<td>" +
+              fbiApiResponseData.items[x].uid + "</td>";
+              text += "<td>" +
+              fbiApiResponseData.items[x].hair_raw + "</td>";
+              text += "<td>" +
+              fbiApiResponseData.items[x].weight + "</td>";
+              text += "<td>" +
+              fbiApiResponseData.items[x].url + "</td>";
+              text += "<td>" +
+              fbiApiResponseData.items[x].person_classification + "</td></tr>";
+            }
+            else if (fbiEntry === 'title')
+            {
+              text += "<tr>";
+              text += "<td>" +
+              fbiApiResponseData.items[x].title + "</td></tr>";
+            }
+            else if (fbiEntry === 'description')
+            {
+              text += "<tr>";
+              text += "<td></td>";
+              text += "<td>" +
+              fbiApiResponseData.items[x].description + "</td></tr>";
+            }
+            else if (fbiEntry === 'details')
+            {
+              text += "<tr>";
+              text += "<td></td>";
+              text += "<td></td>";
+              text += "<td>" +
+              fbiApiResponseData.items[x].details + "</td></tr>";
+            }
+            else if (fbiEntry === 'sex')
+            {
+              text += "<tr>";
+              text += "<td></td>";
+              text += "<td></td>";
+              text += "<td></td>";
+              text += "<td>" +
+              fbiApiResponseData.items[x].sex + "</td></tr>";
+            }
+            else if (fbiEntry === 'race')
+            {
+              text += "<tr>";
+              text += "<td></td>";
+              text += "<td></td>";
+              text += "<td></td>";
+              text += "<td></td>";
+              text += "<td>" +
+              fbiApiResponseData.items[x].race_raw + "</td></tr>";
+            }
+            else if (fbiEntry === 'id')
+            {
+              text += "<tr>";
+              text += "<td></td>";
+              text += "<td></td>";
+              text += "<td></td>";
+              text += "<td></td>";
+              text += "<td></td>";
+              text += "<td></td>";
+              text += "<td>" +
+              fbiApiResponseData.items[x].uid + "</td></tr>";
+            }
+            else if (fbiEntry === 'hair color')
+            {
+              text += "<tr>";
+              text += "<td></td>";
+              text += "<td></td>";
+              text += "<td></td>";
+              text += "<td></td>";
+              text += "<td></td>";
+              text += "<td></td>";
+              text += "<td></td>";
+              text += "<td>" +
+              fbiApiResponseData.items[x].hair_raw + "</td></tr>";
+            }
+            else if (fbiEntry === 'weight')
+            {
+              text += "<tr>";
+              text += "<td></td>";
+              text += "<td></td>";
+              text += "<td></td>";
+              text += "<td></td>";
+              text += "<td></td>";
+              text += "<td></td>";
+              text += "<td></td>";
+              text += "<td></td>";
+              text += "<td>" +
+              fbiApiResponseData.items[x].weight + "</td></tr>";
+            }
+            else if (fbiEntry === 'url')
+            {
+              text += "<tr>";
+              text += "<td></td>";
+              text += "<td></td>";
+              text += "<td></td>";
+              text += "<td></td>";
+              text += "<td></td>";
+              text += "<td></td>";
+              text += "<td></td>";
+              text += "<td></td>";
+              text += "<td></td>";              text += "<td>" +
+              fbiApiResponseData.items[x].url + "</td></tr>";
+            }
+            else if (fbiEntry === 'classification')
+            {
+              text += "<tr>";
+              text += "<td></td>";
+              text += "<td></td>";
+              text += "<td></td>";
+              text += "<td></td>";
+              text += "<td></td>";
+              text += "<td></td>";
+              text += "<td></td>";
+              text += "<td></td>";
+              text += "<td></td>";
+              text += "<td></td>";
+              text += "<td>" +
+              fbiApiResponseData.items[x].person_classification + "</td></tr>";
+            }
 
-          var word = fbiApiWord.value
-          if (word === 'name'){
-            var reward_text = respData.items[0].title;
           }
-          else if (word === 'description'){
-            var reward_text = respData.items[0].description;
-          }
-          else if (word === 'remarks'){
-            var reward_text = respData.items[0].remarks;
-          }
-          else if (word === 'details'){
-            var reward_text = respData.items[0].details;
-          }
-          // // create element
-          var reward = document.createElement('li');
-          //
-          // // add data to list item
-          reward.innerHTML = reward_text;
-          //
-          // // add to HTML
-          // document.body.appendChild(reward);
-
-          fbiResultsDiv.appendChild(reward);
+          text += "</table>"
+          fbiResultsDiv.innerHTML = text;
         }
       )
     }// end else if
@@ -586,49 +756,55 @@ function handle_ajax(event)
       }
     )
     .then(
-      function(twitterApiResponse){
-        return twitterApiResponse.json();//json.data
+      function(twitterApiResponseData){
+        return twitterApiResponseData.json();//json.data
       }
     )
     .then(
-      function(twitterApiParsedData)
+      function(twitterApiResponseData)
       {
-        console.log(twitterApiParsedData);
-        // var twitterApiResponse = twitterApiRequest.response;
-              // var twitterApiParsedData = JSON.parse(twitterApiResponse);
-              // console.log(twitterApiParsedData);
-              if(twitterApiWord.value == 's')
-              {
-                var textData = twitterApiParsedData.data[0].text;
-              }
-              var textDisplay = document.createElement('li');
-              textDisplay.innerHTML = textData;
-              twitterResultsDiv.appendChild(textDisplay);
+        console.log(twitterApiResponseData);
+        // HTML TABLE
+        var twitterEntry = twitterApiWord.value
+        let text = "<table>"
+        for (let x in twitterApiResponseData.data)
+        if (twitterEntry === 'all')
+        {
+          text += "<tr>";
+          text += "<td>" +
+          twitterApiResponseData.data[x].id + "</td>";
+          text += "<td>" +
+          twitterApiResponseData.data[x].text + "</td></tr>";
+        }
+        else if (twitterEntry === 'id')
+        {
+          text += "<tr>";
+          text += "<td>" +
+          twitterApiResponseData.data[x].id + "</td></tr>";
+        }
+        else if (twitterEntry === 'text')
+        {
+          text += "<tr>";
+          text += "<td></td>";
+          text += "<td>" +
+          twitterApiResponseData.data[x].text + "</td></tr>";
+        }
+        text += "</table>"
+        twitterResultsDiv.innerHTML = text;
+        // JSON ONLY
+        // // var twitterApiResponse = twitterApiRequest.response;
+        //       // var twitterApiParsedData = JSON.parse(twitterApiResponse);
+        //       // console.log(twitterApiParsedData);
+        //       if(twitterApiWord.value == 's')
+        //       {
+        //         var textData = twitterApiParsedData.data[0].text;
+        //       }
+        //       var textDisplay = document.createElement('li');
+        //       textDisplay.innerHTML = textData;
+        //       twitterResultsDiv.appendChild(textDisplay);
       }
     )
   }// end else if
-    // //  Twitter XML
-    // else if(event.target === twitterApiButton)
-    // {
-    //   var twitterApiRequest = new XMLHttpRequest();
-    //   console.log(twitterApiWord.value)
-    //   request.open('GET', twitterPath);
-    //   request.onload =
-    //   function()
-    //     {
-    //       var twitterApiResponse = twitterApiRequest.response;
-    //       var twitterApiParsedData = JSON.parse(twitterApiResponse);
-    //       console.log(twitterApiParsedData);
-    //       if(twitterApiWord.value == 's')
-    //       {
-    //         var textData = twitterApiParsedData.data[0].text;
-    //       }
-    //       var textDisplay = document.createElement('li');
-    //       textDisplay.innerHTML = textData;
-    //       twitterResultsDiv.appendChild(textDisplay);
-    //     };
-    //     twitterApiRequest.send();
-    // }// end else if
     // Newsdata API
     else if (event.target === newsdataApiButton)
     {
@@ -645,21 +821,67 @@ function handle_ajax(event)
         function(newsdataApiResponseData)
         {
           console.log(newsdataApiResponseData);
-          var word = newsdataApiWord.value
-          if (word === 'title'){
-            var textData = newsdataApiResponseData.results[1].title;
+          // HTML TABLE
+          var newsdataEntry = newsdata_api_word.value
+          let text = "<table>"
+          for (let x in newsdataApiResponseData.results)
+          {
+            if (newsdataEntry === 'all')
+            {
+              text += "<tr>";
+              text += "<td>" +
+              newsdataApiResponseData.results[x].title + "</td>";
+              text += "<td>" +
+              newsdataApiResponseData.results[x].link + "</td>";
+              text += "<td>" +
+              newsdataApiResponseData.results[x].description + "</td></tr>";
+            }
+            else if (newsdataEntry === 'title')
+            {
+              text += "<tr>";
+              text += "<td>" +
+              newsdataApiResponseData.results[x].title + "</td>";
+              text += "<td></td>";
+              text += "<td></td></tr>";
+            }
+            else if (newsdataEntry === 'link')
+            {
+              text += "<tr>";
+              text += "<td></td>";
+              text += "<td>" +
+              newsdataApiResponseData.results[x].link + "</td>";
+              text += "<td>";
+              text += "</td></tr>";
+            }
+            else if (newsdataEntry === 'description')
+            {
+              text += "<tr>";
+              text += "<td></td>";
+              text += "<td></td>";
+              text += "<td>" +
+              newsdataApiResponseData.results[x].description + "</td></tr>";
+            }
           }
-          else if (word === 'description'){
-            var textData = newsdataApiResponseData.results[1].description;
-          }
-          else if (word === 'link'){
-            var textData = newsdataApiResponseData.results[1].link;
-          }
-          var textDisplay = document.createElement('P');
-          textDisplay.innerHTML = textData;
-          newsdataResultsDiv.appendChild(textDisplay);
+          text += "</table>"
+          newsdataResultsDiv.innerHTML = text;
+
+
+          // JSON ONLY
+          // var word = newsdataApiWord.value
+          // if (word === 'title'){
+          //   var textData = newsdataApiResponseData.results[1].title;
+          // }
+          // else if (word === 'description'){
+          //   var textData = newsdataApiResponseData.results[1].description;
+          // }
+          // else if (word === 'link'){
+          //   var textData = newsdataApiResponseData.results[1].link;
+          // }
+          // var textDisplay = document.createElement('P');
+          // textDisplay.innerHTML = textData;
+          // newsdataResultsDiv.appendChild(textDisplay);
         }
-      )
+      )// end .then
     } // end else if
   });// crudOperationsDiv
 }// function handle ajax
