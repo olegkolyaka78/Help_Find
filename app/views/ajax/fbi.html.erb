@@ -1,0 +1,72 @@
+
+<h2>FBI Search</h2>
+
+<br>
+<br>
+<b>
+<div id='crud_operations_div'>
+
+  <label>Valid Options:  all, title, description, details, sex, race, id, hair color, weight, classification, url</label></b>
+  <input id="fbi_api_word">
+
+
+  <button id="fbi_api_button" type="button">Return results</button><br>
+
+  <br>
+
+  <div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Details</th>
+        <th>Sex</th>
+        <th>Race</th>
+        <th>FBI ID</th>
+        <th>Hair</th>
+        <th>Weight</th>
+        <th>URL</th>
+        <th>Classification</th>
+      </tr>
+    </thead>
+    <tbody id="fbi_results_div">
+    </tbody>
+  </table>
+</div>
+
+</div>
+
+<br>
+<br>
+<br>
+<!-- <b> -->
+<%= link_to "Home", "home" %>
+
+<br>
+
+<%= link_to 'Search Twitter', 'twitter' %>
+
+<br>
+
+<%= link_to 'Search Newsdata', 'newsdata' %>
+
+<br>
+
+<%= link_to 'Missing Files Center', 'missing_files' %>
+
+<br>
+
+<%= link_to 'Status Reports', 'status_reports' %>
+
+<br>
+
+<%= link_to 'Login/Logoff', 'session' %>
+
+<br>
+
+<%= link_to 'About', 'about' %>
+
+<br>
+<!-- </b> -->
+<%= javascript_pack_tag 'ajax_operations' %>

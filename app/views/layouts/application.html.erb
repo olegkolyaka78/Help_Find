@@ -11,6 +11,142 @@
   </head>
 
   <body>
+    <p style="color:blue;"></p>
+<p style="font-size:50px;"></p>
+
+    <!-- jumbotron -->
+    <div class="jumbotron jumbo-background">
+       <h1 class="display-4">Help Find Missing People</h1>
+     </div>
+     <% if !flash[:alert].nil? %>
+     <p class="my_alert"><%= flash[:alert] %></p>
+   <% end %>
+   <!-- Navbar -->
+   <nav class="navbar navbar-expand-sm   navbar-dark" style="background-color: #BEBEBE">
+     <!-- Home -->
+   <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+     <li class="nav-item dropdown dmenu">
+     <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+      Home
+     </a>
+     <div class="dropdown-menu sm-menu">
+       <%= link_to "Home", "home" %>
+       <br>
+       <%= link_to 'About', 'about' %>
+      <br>
+       <%= link_to 'Login/Logoff', 'session' %>
+     </div>
+   </li>
+<!-- Search FBI -->
+  <li class="nav-item dropdown dmenu">
+  <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+    Search FBI
+  </a>
+  <div class="dropdown-menu sm-menu">
+    <%= link_to 'Search FBI', 'fbi' %>
+    <br>
+    <%= link_to 'Missing People', 'missing_read' %>
+    <br>
+    <%= link_to 'Status Reports', 'status_reports_read' %>
+  </div>
+</li>
+<!-- Search Twitter -->
+  <li class="nav-item dropdown dmenu">
+  <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+    Search Twitter
+  </a>
+  <div class="dropdown-menu sm-menu">
+  <%= link_to 'Search Twitter', 'twitter' %>
+    <%= link_to 'Missing People', 'missing_read' %>
+    <br>
+    <%= link_to 'Status Reports', 'status_reports_read' %>
+  </div>
+</li>
+<!--Search Newsdata -->
+  <li class="nav-item dropdown dmenu">
+  <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+    Search Newsdata
+  </a>
+  <div class="dropdown-menu sm-menu">
+  <%= link_to 'Search Newsdata', 'newsdata' %>
+    <%= link_to 'Missing People', 'missing_read' %>
+    <br>
+    <%= link_to 'Status Reports', 'status_reports_read' %>
+  </div>
+</li>
+<!--Search Missing People -->
+  <li class="nav-item dropdown dmenu">
+  <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+    Missing People
+  </a>
+  <div class="dropdown-menu sm-menu">
+
+    <%= link_to 'Create New File', 'missing_create' %>
+
+    <br>
+
+
+    <%= link_to 'See All Files', 'missing_read' %>
+
+    <br>
+
+    <%= link_to 'Update File', 'missing_update' %>
+
+    <br>
+
+    <%= link_to 'Delete File', 'missing_delete' %>
+  </div>
+</li>
+<!--Status Reports -->
+  <li class="nav-item dropdown dmenu">
+  <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+    Status Reports
+  </a>
+  <div class="dropdown-menu sm-menu">
+
+    <%= link_to 'Create New', 'status_reports_create' %>
+
+    <br>
+
+    <%= link_to 'See All Files', 'status_reports_read' %>
+
+    <br>
+
+    <%= link_to 'Update File', 'status_reports_update' %>
+
+    <br>
+
+    <%= link_to 'Delete File', 'status_reports_delete' %>
+  </div>
+</li>
+<!--Search Login/Logout -->
+  <li class="nav-item dropdown dmenu">
+  <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+    Login/Logout
+  </a>
+  <div class="dropdown-menu sm-menu">
+    <%= link_to 'Login/Logoff', 'session' %>
+     <br>
+    <%= link_to 'Home', 'home' %>
+     <br>
+    <%= link_to 'About', 'about' %>
+  </div>
+</li>
+<!--Search About -->
+  <li class="nav-item dropdown dmenu">
+  <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+    About
+  </a>
+  <div class="dropdown-menu sm-menu">
+    <%= link_to 'About', 'about' %>
+    <br>
+    <%= link_to 'Home', 'home' %>
+    <br>
+    <%= link_to 'Login/Logoff', 'session' %>
+  </div>
+</li>
+</ul>
+   </nav>
     <%= yield %>
   </body>
 </html>

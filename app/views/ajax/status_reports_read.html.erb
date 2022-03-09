@@ -1,0 +1,63 @@
+
+<h2>Status Reports</h2>
+
+
+<div id='crud_operations_div'>
+
+
+    <!-- List Status Reports Of A Missing Person-->
+    <b><p>Display Missing Person Status Reports</p></b>
+
+    <label>Missing Person ID</label>
+    <input id="read_status_reports_missing_person_id" type="number">
+
+    <br>
+
+      <button id="read_status_reports_button" type="button" a href="#" class="button">Display All</button>
+
+      <br>
+
+      <div class="container">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Sex</th>
+            <th>Race</th>
+            <th>Age</th>
+            <th>Hair Color</th>
+            <th>Weight</th>
+          </tr>
+        </thead>
+        <tbody id="read_status_report_results_div">
+        </tbody>
+      </table>
+    </div>
+
+      <br>
+        <br>
+          <br>
+            <br>
+              <br>
+
+</div>
+<%= link_to "Home", "home" %>
+
+<br>
+
+<%= link_to 'Search FBI', 'fbi' %>
+
+<br>
+
+<%= link_to 'Search Twitter', 'twitter' %>
+
+<br>
+
+<%= link_to 'Search Newsdata', 'newsdata' %>
+
+<br>
+
+<%= link_to 'Login/Logoff', 'session' %>
+
+<%= javascript_pack_tag 'ajax_operations' %>

@@ -1,0 +1,78 @@
+
+<h2>Missing People</h2>
+
+<br>
+<br>
+
+<div id='crud_operations_div'>
+
+  <!-- Delete A Missing Person Profile -->
+  <b><p>Delete A Missing Person's Profile</p></b>
+
+  <label>Missing Person ID</label>
+  <input id="delete_missing_person_id" type="number">
+
+  <br>
+
+  <button id="delete_missing_person_button" type="button" a href="#" class="button">Delete Profile</button>
+
+  <br>
+
+  <div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Sex</th>
+        <th>Race</th>
+        <th>Age</th>
+        <th>Hair Color</th>
+        <th>Weight</th>
+      </tr>
+    </thead>
+    <tbody id="delete_missing_person_results_div">
+    </tbody>
+  </table>
+</div>
+
+  <br>
+    <br>
+      <br>
+        <br>
+          <br>
+
+</div>
+
+  <br>
+    <br>
+      <br>
+
+<%= link_to "Home", "home" %>
+
+<br>
+
+<%= link_to 'Search FBI', 'fbi' %>
+
+<br>
+
+<%= link_to 'Search Twitter', 'twitter' %>
+
+<br>
+
+<%= link_to 'Search Newsdata', 'newsdata' %>
+
+<br>
+
+<%= link_to 'Status Reports', 'status_reports' %>
+
+<br>
+
+<%= link_to 'Login/Logoff', 'session' %>
+
+<br>
+
+<%= link_to 'About', 'about' %>
+
+
+<%= javascript_pack_tag 'ajax_operations' %>
