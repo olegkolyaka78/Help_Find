@@ -1,0 +1,78 @@
+<h2>Help Find API User Session</h2>
+
+<br>
+
+
+<div id="session_rest_operations_div">
+
+  <!-- Help Find API Create User -->
+  <b><p>Create User</p></b>
+
+  <label>User Email</label>
+  <input id="create_user_email">
+
+  <br>
+
+  <label>User Password</label>
+  <input id="create_user_password">
+
+  <br>
+  <br>
+
+  <button id="create_user_button" type="button" a href="#" class="button">Create</button>
+
+  <br>
+
+  <!-- <b><p>Create User Status:</p></b> -->
+  <div id="create_user_results_div">
+  <br>
+
+</div>
+
+<br>
+
+<b>
+<%= link_to 'Logon', 'logon_session' %>
+ <br>
+<%= link_to 'Logoff', 'logoff_session' %>
+</b>
+<br>
+<br>
+<br>
+<br>
+
+
+<%= link_to 'Home', '/ajax/home' %>
+
+<br>
+
+<%= link_to 'Search FBI', 'fbi' %>
+
+<br>
+
+<%= link_to 'Search Twitter', 'twitter' %>
+
+<br>
+
+<%= link_to 'Search Newsdata', 'newsdata' %>
+
+<br>
+
+<%= link_to 'Missing Files', 'missing_read' %>
+
+<br>
+
+<%= link_to 'Status Reports', 'status_reports_read' %>
+
+<br>
+
+<%= link_to 'Login/Logoff', 'session' %>
+
+<br>
+
+<%= link_to 'About', 'about' %>
+
+<br>
+
+
+<%= javascript_pack_tag 'session_operations' %>

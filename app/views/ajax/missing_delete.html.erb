@@ -13,40 +13,45 @@
   <input id="delete_missing_person_id" type="number">
 
   <br>
-
+  <br>
   <button id="delete_missing_person_button" type="button" a href="#" class="button">Delete Profile</button>
 
   <br>
+  <br>
 
-  <div class="container">
-  <table class="table">
+  <div id="delete_missing_person_results_div">
+
+    <!-- <div class="container">
+    <table class="table">
     <thead>
-      <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Sex</th>
-        <th>Race</th>
-        <th>Age</th>
-        <th>Hair Color</th>
-        <th>Weight</th>
-      </tr>
-    </thead>
-    <tbody id="delete_missing_person_results_div">
-    </tbody>
-  </table>
+    <tr>
+  </tr>
+</thead>
+<tbody id="delete_missing_person_results_div">
+</tbody>
+</table>
+</div> -->
 </div>
+<br>
+
+<b>
+  <%= link_to 'Create New File', 'missing_create' %>
 
   <br>
-    <br>
-      <br>
-        <br>
-          <br>
 
-</div>
+
+  <%= link_to 'See All Files', 'missing_read' %>
 
   <br>
-    <br>
-      <br>
+
+  <%= link_to 'Update File', 'missing_update' %>
+
+</b>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 <%= link_to "Home", "home" %>
 

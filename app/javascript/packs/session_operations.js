@@ -9,7 +9,9 @@ function handle_session (event) {
   const sessionRestOperationsDiv = document.getElementById('session_rest_operations_div');
 
   // display ajax results
-  const ajaxResultsDiv = document.getElementById('ajax_results_div');
+  const createUserResultsDiv = document.getElementById('create_user_results_div');
+  const logonResultsDiv = document.getElementById('logon_results_div');
+  const logoffResultsDiv = document.getElementById('logoff_results_div');
 
   // buttons
   const createUserButton = document.getElementById('create_user_button')
@@ -60,11 +62,23 @@ function handle_session (event) {
           createUserResponse.json()
             .then((createUserData) =>
             {
-              // add json data to HTML
-              ajaxResultsDiv.innerHTML = '';
-              let textDisplay=document.createElement('P');
-              textDisplay.textContent=JSON.stringify(createUserData);
-              ajaxResultsDiv.appendChild(textDisplay);
+              // logon create HTML element
+                  var word = createUserData.message;
+
+                  // // create element
+                  var displayText = document.createElement('li');
+                  //
+                  // // add data to list item
+                  displayText.innerHTML = word;
+                  //
+                  // // add to HTML
+                  createUserResultsDiv.appendChild(displayText);
+
+              // // add json data to HTML
+              // ajaxResultsDiv.innerHTML = '';
+              // let textDisplay=document.createElement('P');
+              // textDisplay.textContent=JSON.stringify(createUserData);
+              // ajaxResultsDiv.appendChild(textDisplay);
             });
         }
 
@@ -112,15 +126,28 @@ function handle_session (event) {
         if (logonResponse.status === 201)
         {
           // add data
-          ajaxResultsDiv.innerHTML = '';
+          logonResultsDiv.innerHTML = '';
           logonResponse.json()
           .then((logonUserData) =>
           {
             // logon create HTML element
-            let textDisplay = document.createElement('P');
-            textDisplay.textContent = JSON.stringify(logonUserData);
-            ajaxResultsDiv.appendChild(textDisplay);
-            logonResponse.headers
+                var word = logonUserData.message;
+
+                // // create element
+                var displayText = document.createElement('li');
+                //
+                // // add data to list item
+                displayText.innerHTML = word;
+                //
+                // // add to HTML
+                logonResultsDiv.appendChild(displayText);
+
+            // JSON only
+            // let textDisplay = document.createElement('P');
+            // textDisplay.textContent = JSON.stringify(logonUserData);
+            // ajaxResultsDiv.appendChild(textDisplay);
+            // logonResponse.headers
+
             // .forEach(function(value, key)
             //   {
             //     headersTextDisplay = document.createElement('P');
@@ -157,10 +184,24 @@ function handle_session (event) {
           logOffResponse.json()
           .then((logOffData) =>
           {
-            ajaxResultsDiv.innerHTML = "";
-            let textDisplay = document.createElement('P');
-            textDisplay.textContent = JSON.stringify(logOffData);
-            ajaxResultsDiv.appendChild(textDisplay);
+            // HTML
+            // logon create HTML element
+                var word = logOffData.message;
+
+                // // create element
+                var displayText = document.createElement('li');
+                //
+                // // add data to list item
+                displayText.innerHTML = word;
+                //
+                // // add to HTML
+                logoffResultsDiv.appendChild(displayText);
+
+            // JSON only
+            // ajaxResultsDiv.innerHTML = "";
+            // let textDisplay = document.createElement('P');
+            // textDisplay.textContent = JSON.stringify(logOffData);
+            // ajaxResultsDiv.appendChild(textDisplay);
           });
         }
         else

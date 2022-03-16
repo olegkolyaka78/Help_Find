@@ -22,7 +22,7 @@
      <p class="my_alert"><%= flash[:alert] %></p>
    <% end %>
    <!-- Navbar -->
-   <nav class="navbar navbar-expand-sm   navbar-dark" style="background-color: #BEBEBE">
+   <nav class="navbar navbar-expand-sm   navbar-dark" style="background-color: #a4dded">
      <!-- Home -->
    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
      <li class="nav-item dropdown dmenu">
@@ -125,11 +125,11 @@
     Login/Logout
   </a>
   <div class="dropdown-menu sm-menu">
-    <%= link_to 'Login/Logoff', 'session' %>
+    <%= link_to 'Create User', 'create_session' %>
      <br>
-    <%= link_to 'Home', 'home' %>
+    <%= link_to 'Logon', 'logon_session' %>
      <br>
-    <%= link_to 'About', 'about' %>
+    <%= link_to 'Logoff', 'logoff_session' %>
   </div>
 </li>
 <!--Search About -->
@@ -147,6 +147,9 @@
 </li>
 </ul>
    </nav>
+
+   <!-- p5 -->
+   
     <%= yield %>
   </body>
 </html>

@@ -1,0 +1,65 @@
+<h2>Help Find API User Session</h2>
+
+<br>
+
+
+<div id="session_rest_operations_div">
+
+  <!-- Help Find API User Logoff -->
+  <b><p>User Logoff</p></b>
+  <button id="user_logoff_button" type="button" a href="#" class="button">Logoff</button>
+
+</div>
+
+<br>
+<br>
+
+<div id="logoff_results_div">
+
+</div>
+<b>
+<br>
+<br>
+<br>
+<%= link_to 'Create User', 'create_session' %>
+ <br>
+<%= link_to 'Logon', 'logon_session' %>
+<br>
+<br>
+<br>
+</b>
+
+<%= link_to 'Home', '/ajax/home' %>
+
+<br>
+
+<%= link_to 'Search FBI', 'fbi' %>
+
+<br>
+
+<%= link_to 'Search Twitter', 'twitter' %>
+
+<br>
+
+<%= link_to 'Search Newsdata', 'newsdata' %>
+
+<br>
+
+<%= link_to 'Missing Files', 'missing_read' %>
+
+<br>
+
+<%= link_to 'Status Reports', 'status_reports_read' %>
+
+<br>
+
+<%= link_to 'Login/Logoff', 'session' %>
+
+<br>
+
+<%= link_to 'About', 'about' %>
+
+<br>
+
+
+<%= javascript_pack_tag 'session_operations' %>

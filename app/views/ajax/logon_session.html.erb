@@ -1,0 +1,74 @@
+<h2>Help Find API User Session</h2>
+
+<br>
+
+
+<div id="session_rest_operations_div">
+
+  <!-- Help Find API User Logon -->
+  <b><p>User Logon</p></b>
+  <label>User Email</label>
+  <input id="user_log_on_email">
+
+  <br>
+
+  <label>User Password</label>
+  <input id="user_log_on_password">
+
+  <br>
+  <br>
+
+  <button id="user_logon_button" type="button" a href="#" class="button">Logon</button>
+  <br>
+  <br>
+
+  <!-- <b><p>Logon Status:</p></b> -->
+  <div id="logon_results_div">
+
+  </div>
+  <b>
+    <br>
+    <br>
+    <br>
+    <%= link_to 'Create User', 'create_session' %>
+    <br>
+    <%= link_to 'Logoff', 'logoff_session' %>
+    <br>
+    <br>
+    <br>
+  </b>
+
+  <%= link_to 'Home', '/ajax/home' %>
+
+  <br>
+
+  <%= link_to 'Search FBI', 'fbi' %>
+
+  <br>
+
+  <%= link_to 'Search Twitter', 'twitter' %>
+
+  <br>
+
+  <%= link_to 'Search Newsdata', 'newsdata' %>
+
+  <br>
+
+  <%= link_to 'Missing Files', 'missing_read' %>
+
+  <br>
+
+  <%= link_to 'Status Reports', 'status_reports_read' %>
+
+  <br>
+
+  <%= link_to 'Login/Logoff', 'session' %>
+
+  <br>
+
+  <%= link_to 'About', 'about' %>
+
+  <br>
+
+
+  <%= javascript_pack_tag 'session_operations' %>
