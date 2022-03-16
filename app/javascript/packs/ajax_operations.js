@@ -165,35 +165,47 @@ function handle_ajax(event)
           createMissingPersonResponse.json()
           .then((createMissingPersonData) =>
           {
+            console.log(createMissingPersonData);
+            // // logon create HTML element
+            //     var word = createMissingPersonData.name;
+            //
+            //     // // create element
+            //     var displayText = document.createElement('li');
+            //     //
+            //     // // add data to list item
+            //     displayText.innerHTML = word;
+            //     //
+            //     // // add to HTML
+            //     createMissingPersonResultsDiv.appendChild(displayText);
 
             // HTML TABLE
             let text = "<table>"
-            for (let x in createMissingPersonData)
-            {
+            // for (let x in createMissingPersonData)
+            // {
               text += "<tr>";
               text += "<td>" +
-              createMissingPersonData[x].id + "</td>";
+              createMissingPersonData.id + "</td>";
               text += "<td>" +
-              createMissingPersonData[x].name + "</td>";
+              createMissingPersonData.name + "</td>";
               text += "<td>" +
-              createMissingPersonData[x].sex + "</td>";
+              createMissingPersonData.sex + "</td>";
               text += "<td>" +
-              createMissingPersonData[x].race + "</td>";
+              createMissingPersonData.race + "</td>";
               text += "<td>" +
-              createMissingPersonData[x].age + "</td>";
+              createMissingPersonData.age + "</td>";
               text += "<td>" +
-              createMissingPersonData[x].hair_color + "</td>";
+              createMissingPersonData.hair_color + "</td>";
               text += "<td>" +
-              createMissingPersonData[x].weight + "</td></tr>";
-            }
+              createMissingPersonData.weight + "</td></tr>";
+            // }
             text += "</table>"
             createMissingPersonResultsDiv.innerHTML = text;
 
             // JSON ONLY
-            createMissingPersonResultsDiv.innerHTML = '';
-            let displayText = document.createElement('P');
-            displayText.textContent = JSON.stringify(createMissingPersonData);
-            createMissingPersonResultsDiv.appendChild(displayText);
+            // createMissingPersonResultsDiv.innerHTML = '';
+            // let displayText = document.createElement('P');
+            // displayText.textContent = JSON.stringify(createMissingPersonData);
+            // createMissingPersonResultsDiv.appendChild(displayText);
           });
         }
         // Status
@@ -334,12 +346,35 @@ function handle_ajax(event)
         if (updateMissingPersonResponse.status === 200)
         {
           updateMissingPersonResponse.json()
-          .then((data) =>
+          .then((updateMissingPersonData) =>
           {
-            updateMissingPersonResultsDiv.innerHTML = '';
-            let parag = document.createElement('P');
-            parag.textContent = JSON.stringify(data);
-            updateMissingPersonResultsDiv.appendChild(parag);
+            // HTML TABLE
+            let text = "<table>"
+            // for (let x in createMissingPersonData)
+            // {
+              text += "<tr>";
+              text += "<td>" +
+              updateMissingPersonData.id + "</td>";
+              text += "<td>" +
+              updateMissingPersonData.name + "</td>";
+              text += "<td>" +
+              updateMissingPersonData.sex + "</td>";
+              text += "<td>" +
+              updateMissingPersonData.race + "</td>";
+              text += "<td>" +
+              updateMissingPersonData.age + "</td>";
+              text += "<td>" +
+              updateMissingPersonData.hair_color + "</td>";
+              text += "<td>" +
+              updateMissingPersonData.weight + "</td></tr>";
+            // }
+            text += "</table>"
+            updateMissingPersonResultsDiv.innerHTML = text;
+            // JSON only
+            // updateMissingPersonResultsDiv.innerHTML = '';
+            // let parag = document.createElement('P');
+            // parag.textContent = JSON.stringify(data);
+            // updateMissingPersonResultsDiv.appendChild(parag);
           });
         }
         else
@@ -378,10 +413,24 @@ function handle_ajax(event)
         deleteMissingPersonResponse.json()
         if (deleteMissingPersonResponse.status === 200)
         {
-          deleteMissingPersonResultsDiv.innerHTML = ''
-          let textDisplay = document.createElement('P')
-          textDisplay.textContent = JSON.stringify(deleteMissingPersonData)
-          deleteMissingPersonResultsDiv.appendChild(textDisplay);
+          // HTML
+          // logon create HTML element
+          var word = deleteMissingPersonData.message;
+
+          // // create element
+          var displayText = document.createElement('li');
+          //
+          // // add data to list item
+          displayText.innerHTML = word;
+          //
+          // // add to HTML
+          deleteMissingPersonResultsDiv.appendChild(displayText);
+
+          // JSON only
+          // deleteMissingPersonResultsDiv.innerHTML = ''
+          // let textDisplay = document.createElement('P')
+          // textDisplay.textContent = JSON.stringify(deleteMissingPersonData)
+          // deleteMissingPersonResultsDiv.appendChild(textDisplay);
         }
         else
         {
@@ -473,18 +522,40 @@ function handle_ajax(event)
           }
         else
           {
-            // JSON ONLY
-            for (let i = 0; i < readStatusReportsHtmlData.length; i++)
+            // HTML TABLE
+            let text = "<table>"
+            for (let x in readStatusReportsHtmlData)
             {
-              let textDisplay = document.createElement('P');
-              textDisplay.textContent = JSON.stringify(readStatusReportsHtmlData[i]);
-              readStatusReportResultsDiv.appendChild(textDisplay);
+              text += "<tr>";
+              text += "<td>" +
+              readStatusReportsHtmlData[x].id + "</td>";
+              text += "<td>" +
+              readStatusReportsHtmlData[x].missing_person_id + "</td>";
+              text += "<td>" +
+              readStatusReportsHtmlData[x].description + "</td>";
+              text += "<td>" +
+              readStatusReportsHtmlData[x].details + "</td>";
+              text += "<td>" +
+              readStatusReportsHtmlData[x].case_id + "</td>";
+              text += "<td>" +
+              readStatusReportsHtmlData[x].image_url + "</td></tr>";
+
             }
+            text += "</table>"
+            readStatusReportResultsDiv.innerHTML = text;
+
+            // JSON ONLY
+            // for (let i = 0; i < readStatusReportsHtmlData.length; i++)
+            // {
+            //   let textDisplay = document.createElement('P');
+            //   textDisplay.textContent = JSON.stringify(readStatusReportsHtmlData[i]);
+            //   readStatusReportResultsDiv.appendChild(textDisplay);
+            // }
           }
         }
         else
         {
-          alert(`Return code ${readStatusReportsHtmlData.status} ${readStatusReportsHtmlData.statusText} ${JSON.stringify(data)}`);
+          alert(`Return code ${readStatusReportsHtmlData.status} ${readStatusReportsHtmlData.statusText} ${JSON.stringify(readStatusReportsHtmlData)}`);
         }// end try
       } catch (readStatusReportsError) {
         console.log(readStatusReportsError);

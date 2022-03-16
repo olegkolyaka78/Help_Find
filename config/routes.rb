@@ -2,10 +2,14 @@ Rails.application.routes.draw do
 
   root to: 'ajax#session'
   get "ajax/home"
-  get "ajax/session"
+    get "ajax/session"
+  get "ajax/create_session"
+  get "ajax/logon_session"
+  get "ajax/logoff_session"
   get "ajax/fbi"
   get "ajax/twitter"
   get "ajax/newsdata"
+  get "ajax/missing_files"
   get "ajax/missing_create"
   get "ajax/missing_read"
   get "ajax/missing_update"
