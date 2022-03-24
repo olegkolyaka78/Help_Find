@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-  root to: 'ajax#session'
+  root to: "ajax#session"
   get "ajax/home"
-    get "ajax/session"
+  get "ajax/session"
   get "ajax/create_session"
   get "ajax/logon_session"
   get "ajax/logoff_session"
