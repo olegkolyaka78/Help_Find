@@ -6,7 +6,11 @@
 <b>
 <div id='crud_operations_div'>
 
-  <label>Valid Options:  all, title, description, details, sex, race, id, hair color, weight, classification, url</label></b>
+  <label>Valid Options</label>
+</b>
+   <br> <p>Column Sort: all, title, description, details, sex, race, id, hair color, weight, classification, url</p>
+   <br><p>Enter Row ID To Load Database</p>
+
   <input id="fbi_api_word">
 
 
@@ -15,9 +19,11 @@
   <br>
 
   <div class="container">
+  <label>FBI File Chosen For Database Input</label>
   <table class="table">
     <thead>
       <tr>
+        <th>ID Row </th>
         <th>Title</th>
         <th>Description</th>
         <th>Details</th>
@@ -39,6 +45,25 @@
 
 <br>
 <br>
+<div class="container">
+  <label>File Entered Into Database</label>
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Sex</th>
+      <th>Race</th>
+      <th>Age</th>
+      <th>Hair Color</th>
+      <th>Weight</th>
+    </tr>
+  </thead>
+  <tbody id="read_missing_person_results_div">
+  </tbody>
+</table>
+</div>
+
 <br>
 <!-- <b> -->
 <%= link_to "Home", "home" %>
