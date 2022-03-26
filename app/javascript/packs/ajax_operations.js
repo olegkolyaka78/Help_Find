@@ -112,6 +112,7 @@ function handle_ajax(event)
   // FBI API
   const fbiApiWord = document.getElementById('fbi_api_word');
   const fbiApiButton = document.getElementById('fbi_api_button');
+  const fbiCreateMissingNameButton = document.getElementById('fbi_create_missing_name_button')
   //  Twitter API
   const twitterApiWord = document.getElementById('twitter_api_word');
   const twitterApiButton = document.getElementById('twitter_api_button');
@@ -164,35 +165,36 @@ function handle_ajax(event)
           createMissingPersonResponse.json()
           .then((createMissingPersonData) =>
           {
+            console.log(createMissingPersonData);
 
             // HTML TABLE
             let text = "<table>"
-            for (let x in createMissingPersonData)
-            {
+            // for (let x in createMissingPersonData)
+            // {
               text += "<tr>";
               text += "<td>" +
-              createMissingPersonData[x].id + "</td>";
+              createMissingPersonData.id + "</td>";
               text += "<td>" +
-              createMissingPersonData[x].name + "</td>";
+              createMissingPersonData.name + "</td>";
               text += "<td>" +
-              createMissingPersonData[x].sex + "</td>";
+              createMissingPersonData.sex + "</td>";
               text += "<td>" +
-              createMissingPersonData[x].race + "</td>";
+              createMissingPersonData.race + "</td>";
               text += "<td>" +
-              createMissingPersonData[x].age + "</td>";
+              createMissingPersonData.age + "</td>";
               text += "<td>" +
-              createMissingPersonData[x].hair_color + "</td>";
+              createMissingPersonData.hair_color + "</td>";
               text += "<td>" +
-              createMissingPersonData[x].weight + "</td></tr>";
-            }
+              createMissingPersonData.weight + "</td></tr>";
+            // }
             text += "</table>"
             createMissingPersonResultsDiv.innerHTML = text;
 
             // JSON ONLY
-            createMissingPersonResultsDiv.innerHTML = '';
-            let displayText = document.createElement('P');
-            displayText.textContent = JSON.stringify(createMissingPersonData);
-            createMissingPersonResultsDiv.appendChild(displayText);
+            // createMissingPersonResultsDiv.innerHTML = '';
+            // let displayText = document.createElement('P');
+            // displayText.textContent = JSON.stringify(createMissingPersonData);
+            // createMissingPersonResultsDiv.appendChild(displayText);
           });
         }
         // Status
@@ -333,12 +335,35 @@ function handle_ajax(event)
         if (updateMissingPersonResponse.status === 200)
         {
           updateMissingPersonResponse.json()
-          .then((data) =>
+          .then((updateMissingPersonData) =>
           {
-            updateMissingPersonResultsDiv.innerHTML = '';
-            let parag = document.createElement('P');
-            parag.textContent = JSON.stringify(data);
-            updateMissingPersonResultsDiv.appendChild(parag);
+            // HTML TABLE
+            let text = "<table>"
+            // for (let x in createMissingPersonData)
+            // {
+              text += "<tr>";
+              text += "<td>" +
+              updateMissingPersonData.id + "</td>";
+              text += "<td>" +
+              updateMissingPersonData.name + "</td>";
+              text += "<td>" +
+              updateMissingPersonData.sex + "</td>";
+              text += "<td>" +
+              updateMissingPersonData.race + "</td>";
+              text += "<td>" +
+              updateMissingPersonData.age + "</td>";
+              text += "<td>" +
+              updateMissingPersonData.hair_color + "</td>";
+              text += "<td>" +
+              updateMissingPersonData.weight + "</td></tr>";
+            // }
+            text += "</table>"
+            updateMissingPersonResultsDiv.innerHTML = text;
+            // JSON only
+            // updateMissingPersonResultsDiv.innerHTML = '';
+            // let parag = document.createElement('P');
+            // parag.textContent = JSON.stringify(data);
+            // updateMissingPersonResultsDiv.appendChild(parag);
           });
         }
         else
@@ -377,10 +402,24 @@ function handle_ajax(event)
         deleteMissingPersonResponse.json()
         if (deleteMissingPersonResponse.status === 200)
         {
-          deleteMissingPersonResultsDiv.innerHTML = ''
-          let textDisplay = document.createElement('P')
-          textDisplay.textContent = JSON.stringify(deleteMissingPersonData)
-          deleteMissingPersonResultsDiv.appendChild(textDisplay);
+          // HTML
+          // logon create HTML element
+          var word = deleteMissingPersonData.message;
+
+          // // create element
+          var displayText = document.createElement('li');
+          //
+          // // add data to list item
+          displayText.innerHTML = word;
+          //
+          // // add to HTML
+          deleteMissingPersonResultsDiv.appendChild(displayText);
+
+          // JSON only
+          // deleteMissingPersonResultsDiv.innerHTML = ''
+          // let textDisplay = document.createElement('P')
+          // textDisplay.textContent = JSON.stringify(deleteMissingPersonData)
+          // deleteMissingPersonResultsDiv.appendChild(textDisplay);
         }
         else
         {
@@ -472,18 +511,40 @@ function handle_ajax(event)
           }
         else
           {
-            // JSON ONLY
-            for (let i = 0; i < readStatusReportsHtmlData.length; i++)
+            // HTML TABLE
+            let text = "<table>"
+            for (let x in readStatusReportsHtmlData)
             {
-              let textDisplay = document.createElement('P');
-              textDisplay.textContent = JSON.stringify(readStatusReportsHtmlData[i]);
-              readStatusReportResultsDiv.appendChild(textDisplay);
+              text += "<tr>";
+              text += "<td>" +
+              readStatusReportsHtmlData[x].id + "</td>";
+              text += "<td>" +
+              readStatusReportsHtmlData[x].missing_person_id + "</td>";
+              text += "<td>" +
+              readStatusReportsHtmlData[x].description + "</td>";
+              text += "<td>" +
+              readStatusReportsHtmlData[x].details + "</td>";
+              text += "<td>" +
+              readStatusReportsHtmlData[x].case_id + "</td>";
+              text += "<td>" +
+              readStatusReportsHtmlData[x].image_url + "</td></tr>";
+
             }
+            text += "</table>"
+            readStatusReportResultsDiv.innerHTML = text;
+
+            // JSON ONLY
+            // for (let i = 0; i < readStatusReportsHtmlData.length; i++)
+            // {
+            //   let textDisplay = document.createElement('P');
+            //   textDisplay.textContent = JSON.stringify(readStatusReportsHtmlData[i]);
+            //   readStatusReportResultsDiv.appendChild(textDisplay);
+            // }
           }
         }
         else
         {
-          alert(`Return code ${readStatusReportsHtmlData.status} ${readStatusReportsHtmlData.statusText} ${JSON.stringify(data)}`);
+          alert(`Return code ${readStatusReportsHtmlData.status} ${readStatusReportsHtmlData.statusText} ${JSON.stringify(readStatusReportsHtmlData)}`);
         }// end try
       } catch (readStatusReportsError) {
         console.log(readStatusReportsError);
@@ -599,12 +660,19 @@ function handle_ajax(event)
         {
           console.log(fbiApiResponseData);
           var fbiEntry = fbiApiWord.value
+          var counter = 1
+          var i = parseInt(fbiEntry) - 1
           let text = "<table>"
+
           for (let x in fbiApiResponseData.items)
           {
             if (fbiEntry === 'all')
             {
+
               text += "<tr>";
+              text += "<td>" +
+              (counter ++) + "</td>";
+              // "<a class='nav-link dropdown-toggle' href='#' id='navbardrop' data-toggle='dropdown'>Add Data</a><div class='dropdown-menu sm-menu'><button id='fbi_create_missing_person_name_button' type='button' a href='# class='button'>Create New File</button></div>" + "</td>";
               text += "<td>" +
               fbiApiResponseData.items[x].title + "</td>";
               text += "<td>" +
@@ -735,8 +803,170 @@ function handle_ajax(event)
               text += "<td>" +
               fbiApiResponseData.items[x].person_classification + "</td></tr>";
             }
-
           }
+          // number entry
+          if (parseInt(fbiEntry))
+          {
+            // display choosen fbi id
+            text += "<tr>";
+            text += "<td>" +
+            fbiEntry + "</td>";
+            text += "<td>" +
+            fbiApiResponseData.items[i].title + "</td>";
+            text += "<td>" +
+            fbiApiResponseData.items[i].description + "</td>";
+            text += "<td>" +
+            fbiApiResponseData.items[i].details + "</td>";
+            text += "<td>" +
+            fbiApiResponseData.items[i].sex + "</td>";
+            text += "<td>" +
+            fbiApiResponseData.items[i].race_raw + "</td>";
+            text += "<td>" +
+            fbiApiResponseData.items[i].uid + "</td>";
+            text += "<td>" +
+            fbiApiResponseData.items[i].hair_raw + "</td>";
+            text += "<td>" +
+            fbiApiResponseData.items[i].weight + "</td>";
+            text += "<td>" +
+            fbiApiResponseData.items[i].url + "</td>";
+            text += "<td>" +
+            fbiApiResponseData.items[i].person_classification + "</td></tr>";
+            // create missing person
+            var createMissingPersonData =
+            {
+              missing_person:
+              {
+                name: fbiApiResponseData.items[i].title,
+                sex: fbiApiResponseData.items[i].sex,
+                race: fbiApiResponseData.items[i].race_raw,
+                hair_color: fbiApiResponseData.items[i].hair_raw,
+                weight: fbiApiResponseData.items[i].weight
+              }
+            }
+            // HTTP Call
+            fetch(missingPeoplePath,
+            {
+              method: 'POST',
+              headers:
+              {
+                'Content-Type': 'application/json',
+                'authorization': authHeader
+              },
+              body: JSON.stringify(createMissingPersonData)
+            })
+            // Display text
+            .then((createMissingPersonResponse) =>
+            {
+              // Results
+              if (createMissingPersonResponse.status === 201)
+              {
+                createMissingPersonResponse.json()
+                .then((createMissingPersonData) =>
+                {
+                  console.log(createMissingPersonData);
+                });
+              }
+              // Status
+              else
+              {
+                createMissingPersonResponse.json()
+                .then((createMissingPersonData) =>
+                {
+                  alert(`Return code ${createMissingPersonResponse.status} ${createMissingPersonResponse.statusText}`);
+                })
+                .catch((createMissingPersonError) =>
+                {
+                  console.log(createMissingPersonError);
+                  alert(createMissingPersonError);
+                });
+              }
+            })  // .then((createMissingPersonResponse)
+            // missing person entered into database
+            fetch(missingPeoplePath,
+            {
+              headers:
+              {
+                'Content-Type':'application/json',
+                'authorization':authHeader
+              }
+            })
+            .then((listMissingPeopleResponse) =>
+            {
+              console.log(listMissingPeopleResponse);
+              if (listMissingPeopleResponse.status === 200)
+              {
+                readMissingPersonResultsDiv.innerHTML = '';
+                listMissingPeopleResponse.json()
+                .then((listMissingPeopleData) =>
+                {
+                  console.log(listMissingPeopleData);
+                  if (listMissingPeopleData.length === 0)
+                  {
+                    let textDisplay = document.createElement('P')
+                    textDisplay.textContent = "No Available Missing Persons Files."
+                    readMissingPersonResultsDiv.appendChild(textDisplay)
+                  }
+                  else
+                  {
+                    // display last missing persons table entry
+                    var listMissingPeopleLastIndex = (listMissingPeopleData.length)-1
+                    let text = "<table>"
+                      text += "<tr>";
+                      text += "<td>" +
+                      listMissingPeopleData[listMissingPeopleLastIndex].id + "</td>";
+                      text += "<td>" +
+                      listMissingPeopleData[listMissingPeopleLastIndex].name + "</td>";
+                      text += "<td>" +
+                      listMissingPeopleData[listMissingPeopleLastIndex].sex + "</td>";
+                      text += "<td>" +
+                      listMissingPeopleData[listMissingPeopleLastIndex].race + "</td>";
+                      text += "<td>" +
+                      listMissingPeopleData[listMissingPeopleLastIndex].age + "</td>";
+                      text += "<td>" +
+                      listMissingPeopleData[listMissingPeopleLastIndex].hair_color + "</td>";
+                      text += "<td>" +
+                      listMissingPeopleData[listMissingPeopleLastIndex].weight + "</td></tr>";
+                    text += "</table>"
+                    readMissingPersonResultsDiv.innerHTML = text;
+                    // status report entered into database
+                    var createStatusReportData =
+                    {
+                      status_report:
+                      {
+                        case_id: fbiApiResponseData.items[i].uid,
+                        description: fbiApiResponseData.items[i].description,
+                        details: fbiApiResponseData.items[i].details,
+                        image_url: fbiApiResponseData.items[i].url
+                      }
+                    }
+                    var fbiCreateIdMissingPersonStatusReport = listMissingPeopleData[(listMissingPeopleData.length)-1].id
+                    fetch
+                    (
+                      `${missingPeoplePath}/${parseInt(fbiCreateIdMissingPersonStatusReport)}/status_reports`,
+                      {
+                        method: 'POST',
+                        headers:
+                        {
+                          'Content-Type': 'application/json',
+                          'authorization': authHeader
+                        },
+                        body: JSON.stringify(createStatusReportData)
+                      }
+                    )
+                  }
+                });// .then((listMissingPeopleData)
+              }
+              else
+              {
+                alert(`Return code ${listMissingPeopleResponse.status} ${listMissingPeopleResponse.statusText}`);
+              }
+            })// end .then((listMissingPeopleResponse)
+            .catch((listMissingPeopleError) =>
+            {
+              console.log(listMissingPeopleError);
+              alert(listMissingPeopleError);
+            });
+          }// end if parse
           text += "</table>"
           fbiResultsDiv.innerHTML = text;
         }

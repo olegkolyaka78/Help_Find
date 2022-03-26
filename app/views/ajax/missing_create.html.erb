@@ -39,12 +39,14 @@
     <input id="create_weight">
 
     <br>
-
+    <br>
 
     <button id="create_missing_person_button" type="button" a href="#" class="button">Create New</button>
 
     <br>
-
+    <br>
+    <b><p>File Created:</p></b>
+    <br>
     <div class="container">
       <table class="table">
         <thead>
@@ -63,14 +65,28 @@
       </table>
     </div>
 
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-
-
   </div>
+
+  <br>
+  <br>
+
+  <b>
+
+    <%= link_to 'See All Files', 'missing_read' %>
+
+    <br>
+
+    <%= link_to 'Update File', 'missing_update' %>
+
+    <br>
+
+    <%= link_to 'Delete File', 'missing_delete' %>
+  </b>
+
+  <br>
+  <br>
+  <br>
+
 
   <br>
   <br>

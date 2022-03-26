@@ -1,62 +1,14 @@
 <h2>Help Find API User Session</h2>
-
-<br>
-
-<!-- Help Find API Create User -->
-<b><p>Create User</p></b>
-<div id="session_rest_operations_div">
-  <label>User Email</label>
-  <input id="create_user_email">
-
-  <br>
-
-  <label>User Password</label>
-  <input id="create_user_password">
-
-  <br>
-
-  <button id="create_user_button" type="button">Create User</button>
-
-  <br>
-
-  <br>
-
-  <br>
-
-  <!-- Help Find API User Logon -->
-  <b><p>User Logon</p></b>
-  <label>User Email</label>
-  <input id="user_log_on_email">
-
-  <br>
-
-  <label>User Password</label>
-  <input id="user_log_on_password">
-
-  <br>
-
-  <button id="user_logon_button" type="button">Log on</button>
-
-  <br>
-  <br>
-
-  <br>
-
-  <!-- Help Find API User Logoff -->
-  <b><p>User Logoff</p></b>
-  <button id="user_logoff_button" type="button">Logoff</button>
-
-</div>
-
 <br>
 <br>
 
-<br>
-
-  <b><p>Status:</p></b>
-  <div id="ajax_results_div">
-
-</div>
+<b>
+<%= link_to 'Create User', 'ajax/create_session' %>
+ <br>
+<%= link_to 'Logon', 'ajax/logon_session' %>
+ <br>
+<%= link_to 'Logoff', 'ajax/logoff_session' %>
+</b>
 
 <br>
 <br>
@@ -64,37 +16,40 @@
 <br>
 <br>
 <br>
+<br>
+<br>
+<br>
+<br>
 
-
-<%= link_to 'Home', '/ajax/home' %>
+<%= link_to 'Home', 'ajax/home' %>
 
 <br>
 
-<%= link_to 'Search FBI', 'fbi' %>
+<%= link_to 'Search FBI', 'ajax/fbi' %>
 
 <br>
 
-<%= link_to 'Search Twitter', 'twitter' %>
+<%= link_to 'Search Twitter', 'ajax/twitter' %>
 
 <br>
 
-<%= link_to 'Search Newsdata', 'newsdata' %>
+<%= link_to 'Search Newsdata', 'ajax/newsdata' %>
 
 <br>
 
-<%= link_to 'Missing Files', 'missing_read' %>
+<%= link_to 'Missing Files', 'ajax/missing_read' %>
 
 <br>
 
-<%= link_to 'Status Reports', 'status_reports_read' %>
+<%= link_to 'Status Reports', 'ajax/status_reports_read' %>
 
 <br>
 
-<%= link_to 'Login/Logoff', 'session' %>
+<%= link_to 'Login/Logoff', 'ajax/session' %>
 
 <br>
 
-<%= link_to 'About', 'about' %>
+<%= link_to 'About', 'ajax/about' %>
 
 <br>
 

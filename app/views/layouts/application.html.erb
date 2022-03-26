@@ -22,7 +22,7 @@
      <p class="my_alert"><%= flash[:alert] %></p>
    <% end %>
    <!-- Navbar -->
-   <nav class="navbar navbar-expand-sm   navbar-dark" style="background-color: #BEBEBE">
+   <nav class="navbar navbar-expand-sm   navbar-dark" style="background-color: #a4dded">
      <!-- Home -->
    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
      <li class="nav-item dropdown dmenu">
@@ -30,11 +30,11 @@
       Home
      </a>
      <div class="dropdown-menu sm-menu">
-       <%= link_to "Home", "home" %>
+       <%= link_to 'Home', '/ajax/home'  %>
        <br>
-       <%= link_to 'About', 'about' %>
+       <%= link_to 'About', '/ajax/about' %>
       <br>
-       <%= link_to 'Login/Logoff', 'session' %>
+       <%= link_to 'Login/Logoff', '/ajax/session' %>
      </div>
    </li>
 <!-- Search FBI -->
@@ -43,11 +43,11 @@
     Search FBI
   </a>
   <div class="dropdown-menu sm-menu">
-    <%= link_to 'Search FBI', 'fbi' %>
+    <%= link_to 'Search FBI', '/ajax/fbi'  %>
     <br>
-    <%= link_to 'Missing People', 'missing_read' %>
+    <%= link_to 'Missing People', '/ajax/missing_read' %>
     <br>
-    <%= link_to 'Status Reports', 'status_reports_read' %>
+    <%= link_to 'Status Reports', '/ajax/status_reports_read' %>
   </div>
 </li>
 <!-- Search Twitter -->
@@ -56,10 +56,10 @@
     Search Twitter
   </a>
   <div class="dropdown-menu sm-menu">
-  <%= link_to 'Search Twitter', 'twitter' %>
-    <%= link_to 'Missing People', 'missing_read' %>
+  <%= link_to 'Search Twitter', '/ajax/twitter' %>
+    <%= link_to 'Missing People', '/ajax/missing_read' %>
     <br>
-    <%= link_to 'Status Reports', 'status_reports_read' %>
+    <%= link_to 'Status Reports', '/ajax/status_reports_read' %>
   </div>
 </li>
 <!--Search Newsdata -->
@@ -68,10 +68,10 @@
     Search Newsdata
   </a>
   <div class="dropdown-menu sm-menu">
-  <%= link_to 'Search Newsdata', 'newsdata' %>
-    <%= link_to 'Missing People', 'missing_read' %>
+  <%= link_to 'Search Newsdata', '/ajax/newsdata' %>
+    <%= link_to 'Missing People', '/ajax/missing_read' %>
     <br>
-    <%= link_to 'Status Reports', 'status_reports_read' %>
+    <%= link_to 'Status Reports', '/ajax/status_reports_read' %>
   </div>
 </li>
 <!--Search Missing People -->
@@ -81,20 +81,20 @@
   </a>
   <div class="dropdown-menu sm-menu">
 
-    <%= link_to 'Create New File', 'missing_create' %>
+    <%= link_to 'Create New File', '/ajax/missing_create' %>
 
     <br>
 
 
-    <%= link_to 'See All Files', 'missing_read' %>
+    <%= link_to 'See All Files', '/ajax/missing_read' %>
 
     <br>
 
-    <%= link_to 'Update File', 'missing_update' %>
+    <%= link_to 'Update File', '/ajax/missing_update' %>
 
     <br>
 
-    <%= link_to 'Delete File', 'missing_delete' %>
+    <%= link_to 'Delete File', '/ajax/missing_delete' %>
   </div>
 </li>
 <!--Status Reports -->
@@ -104,19 +104,19 @@
   </a>
   <div class="dropdown-menu sm-menu">
 
-    <%= link_to 'Create New', 'status_reports_create' %>
+    <%= link_to 'Create File', '/ajax/status_reports_create' %>
 
     <br>
 
-    <%= link_to 'See All Files', 'status_reports_read' %>
+    <%= link_to 'See All Files', '/ajax/status_reports_read' %>
 
     <br>
 
-    <%= link_to 'Update File', 'status_reports_update' %>
+    <%= link_to 'Update File', '/ajax/status_reports_update' %>
 
     <br>
 
-    <%= link_to 'Delete File', 'status_reports_delete' %>
+    <%= link_to 'Delete File', '/ajax/status_reports_delete' %>
   </div>
 </li>
 <!--Search Login/Logout -->
@@ -125,11 +125,11 @@
     Login/Logout
   </a>
   <div class="dropdown-menu sm-menu">
-    <%= link_to 'Login/Logoff', 'session' %>
+    <%= link_to 'Create User', '/ajax/create_session' %>
      <br>
-    <%= link_to 'Home', 'home' %>
+    <%= link_to 'Logon', '/ajax/logon_session' %>
      <br>
-    <%= link_to 'About', 'about' %>
+    <%= link_to 'Logoff', '/ajax/logoff_session' %>
   </div>
 </li>
 <!--Search About -->
@@ -138,15 +138,18 @@
     About
   </a>
   <div class="dropdown-menu sm-menu">
-    <%= link_to 'About', 'about' %>
+    <%= link_to 'About', '/ajax/about' %>
     <br>
-    <%= link_to 'Home', 'home' %>
+    <%= link_to 'Home', '/ajax/home' %>
     <br>
-    <%= link_to 'Login/Logoff', 'session' %>
+    <%= link_to 'Login/Logoff', '/ajax/session' %>
   </div>
 </li>
 </ul>
    </nav>
+
+   <!-- p5 -->
+
     <%= yield %>
   </body>
 </html>
