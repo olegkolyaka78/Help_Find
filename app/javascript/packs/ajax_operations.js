@@ -601,31 +601,38 @@ function handle_ajax(event)
           var fbiEntry = fbiApiWord.value
           let text = "<table>"
           for (let x in fbiApiResponseData.items)
-          {
-            if (fbiEntry === 'all')
-            {
-              text += "<tr>";
-              text += "<td>" +
-              fbiApiResponseData.items[x].title + "</td>";
-              text += "<td>" +
-              fbiApiResponseData.items[x].description + "</td>";
-              text += "<td>" +
-              fbiApiResponseData.items[x].details + "</td>";
-              text += "<td>" +
-              fbiApiResponseData.items[x].sex + "</td>";
-              text += "<td>" +
-              fbiApiResponseData.items[x].race_raw + "</td>";
-              text += "<td>" +
-              fbiApiResponseData.items[x].uid + "</td>";
-              text += "<td>" +
-              fbiApiResponseData.items[x].hair_raw + "</td>";
-              text += "<td>" +
-              fbiApiResponseData.items[x].weight + "</td>";
-              text += "<td>" +
-              fbiApiResponseData.items[x].url + "</td>";
-              text += "<td>" +
-              fbiApiResponseData.items[x].person_classification + "</td></tr>";
-            }
+            for (let s in fbiApiResponseData.items[x].subjects)
+              if (fbiApiResponseData.items[x].subjects[s] === 'Kidnappings and Missing Persons' ||
+                  fbiApiResponseData.items[x].subjects[s] === 'ViCAP Missing Persons' )
+              {
+                if (fbiEntry === 'all')
+                {
+
+                     
+                          text += "<tr>";
+                          text += "<td>" +
+                          fbiApiResponseData.items[x].title + "</td>";
+                          text += "<td>" +
+                          fbiApiResponseData.items[x].description + "</td>";
+                          text += "<td>" +
+                          fbiApiResponseData.items[x].details + "</td>";
+                          text += "<td>" +
+                          fbiApiResponseData.items[x].sex + "</td>";
+                          text += "<td>" +
+                          fbiApiResponseData.items[x].race_raw + "</td>";
+                          text += "<td>" +
+                          fbiApiResponseData.items[x].uid + "</td>";
+                          text += "<td>" +
+                          fbiApiResponseData.items[x].hair_raw + "</td>";
+                          text += "<td>" +
+                          fbiApiResponseData.items[x].weight + "</td>";
+                          text += "<td>" +
+                          fbiApiResponseData.items[x].url + "</td>";
+                          text += "<td>" +
+                          fbiApiResponseData.items[x].person_classification + "</td>";
+                          text += "<td>" +
+                          fbiApiResponseData.items[x].subjects[s] + "</td></tr>";
+                }  
             else if (fbiEntry === 'title')
             {
               text += "<tr>";
@@ -736,14 +743,14 @@ function handle_ajax(event)
               fbiApiResponseData.items[x].person_classification + "</td></tr>";
             }
 
-          }
           text += "</table>"
           fbiResultsDiv.innerHTML = text;
-        }
-      )
-    }// end else if
+      } // end function fbiApiResponseData
+    }
+    )
+    } // end else if
     // twitter fetch
-    else if(event.target === twitterApiButton)
+    else if (event.target === twitterApiButton)
    {
     fetch(twitterPath,
       {
