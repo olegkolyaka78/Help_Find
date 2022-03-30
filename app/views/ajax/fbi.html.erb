@@ -3,12 +3,15 @@
 
 <br>
 <br>
-<b>
 <div id='crud_operations_div'>
 
-  <label>Valid Options:  all, title, description, details, sex, race, id, hair color, weight, classification, url</label></b>
-  <input id="fbi_api_word">
-
+  <div class="field">
+    <%= label='Choose a Search Option :' %>
+    <%= select_tag(:fbi_api_word, options_for_select([['all'], ['title'], ['description'], 
+                                                      ['details'], ['sex'], ['race'],
+                                                      ['id'], ['hair color'], ['hair color'], 
+                                                      ['weight'], ['classification'], ['url']]))%>
+  </div>
 
   <button id="fbi_api_button" type="button">Return results</button><br>
 
